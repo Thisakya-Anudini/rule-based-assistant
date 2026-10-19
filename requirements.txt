@@ -1,0 +1,8 @@
+pandas
+openpyxl
+dateparser
+fastapi
+uvicorn
+python-dotenv
+pytest
+httpx

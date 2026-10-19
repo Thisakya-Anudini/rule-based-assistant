@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Intent Pipeline &mdash; Live Demo</title>
+  <link rel="stylesheet" href="/demo/static/style.css?v=5" />
+</head>
+<body>
+  <header>
+    <h1>Intent Pipeline &mdash; Live Demo</h1>
+    <div class="header-meta">
+      <span>call <code id="call-id">&hellip;</code></span>
+      <span id="laya-status" class="laya-status" role="status">Laya: loading</span>
+      <button id="toggle-laya" class="header-btn" type="button" aria-pressed="false">Enable Laya</button>
+      <button id="stop-playback" class="header-btn" type="button" hidden>Stop</button>
+      <button id="new-call" class="header-btn" type="button">New call</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="left">
+      <div id="transcript" aria-live="polite"></div>
+      <div id="flash" hidden></div>
+      <div class="composer">
+        <div class="composer-main">
+          <div class="speaker-control">
+            <span class="control-label">Speaking as</span>
+            <div class="speaker-toggle" role="group" aria-label="Speaker">
+              <button id="speaker-customer" type="button" class="speaker-btn active" data-speaker="Customer">Customer</button>
+              <button id="speaker-agent" type="button" class="speaker-btn" data-speaker="Agent">Agent</button>
+            </div>
+          </div>
+          <div class="message-row">
+            <textarea id="utterance" rows="2" autocomplete="off" spellcheck="false"
+                      aria-label="Type a message" placeholder="Type a message…"></textarea>
+            <button id="send" type="button">Send</button>
+            <span id="spinner" hidden>thinking&hellip;</span>
+          </div>
+        </div>
+        <div class="transcript-upload">
+          <div class="transcript-upload-copy">
+            <span id="transcript-file-name">Import a conversation from a .txt file</span>
+          </div>
+          <button id="upload-transcript" class="upload-btn" type="button">Upload transcript</button>
+          <input id="transcript-file" type="file" accept=".txt,text/plain" hidden />
+        </div>
+      </div>
+    </section>
+
+    <section class="right">
+      <div class="panel" id="panel-intent">
+        <div class="panel-head"><span class="panel-num">1</span> Intent identification</div>
+        <div class="panel-body"></div>
+      </div>
+      <div class="panel" id="panel-slots">
+        <div class="panel-head"><span class="panel-num">2</span> Slot extraction across turns</div>
+        <div class="panel-body"></div>
+      </div>
+      <div class="panel" id="panel-mcp">
+        <div class="panel-head"><span class="panel-num">3</span> MCP tool call</div>
+        <div class="panel-body"></div>
+      </div>
+    </section>
+  </main>
+
+  <script src="/demo/static/app.js?v=6"></script>
+</body>
+</html>
